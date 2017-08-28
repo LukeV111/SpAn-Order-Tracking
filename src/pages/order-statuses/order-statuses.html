@@ -1,0 +1,44 @@
+<!--
+  Generated template for the OrderStatusesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Order Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-row>
+    <ion-col col-9>   
+      <ion-item>
+		<ion-input type="text" [(ngModel)]="orderStatus.name" placeholder="Order Status"></ion-input>
+      </ion-item>
+    </ion-col> 
+</ion-row>
+ <button full ion-button color="stable" (click)="addOrderStatus()">Add Order Status!</button>
+
+<!--<ion-list reorder="true" (ionItemReorder)="reorderItems($event)">-->
+<ion-list>
+  <ion-item-sliding color="danger" *ngFor="let orderstatus of orderStatuses">
+    <ion-item>
+      {{ orderstatus.name }}
+    </ion-item>
+    <ion-item-options side="left">
+      <button ion-button color="danger" icon-only (click)="removeOrderStatus(orderstatus.$key)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+<ion-item color="light">
+*Tip: Add your custom order statuses here. Delete and re-order as you wish.
+</ion-item>
+</ion-content>
+

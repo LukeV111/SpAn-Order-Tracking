@@ -1,0 +1,23 @@
+<div class="bar bar-header bar-calm"></div>
+
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Add New Order
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>  
+  <ion-item>
+      <ion-input type="text" [(ngModel)]="order.customerName" placeholder="Customer Name"></ion-input>
+  </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="order.orderNumber" placeholder="Order Number"></ion-input>
+  </ion-item>
+    <ion-item>
+      <ion-textarea rows="5" [(ngModel)]="order.orderItems" placeholder="Order Items"></ion-textarea>
+    </ion-item>
+  <button full ion-button color="stable" (click)="addItem()" (click)="showAlert()">Add Order!</button>
+  <button full ion-button color="stable" (click)="completedItem()">Clear Text!</button>
+</ion-content>

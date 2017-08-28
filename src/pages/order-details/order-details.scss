@@ -1,0 +1,9 @@
+page-order-details {
+
+.ionic .item-text-wrap { /* negate the nowrap CSS from .ionic .item */
+    overflow: visible;
+    text-overflow: initial;
+    white-space: initial;
+}
+
+}

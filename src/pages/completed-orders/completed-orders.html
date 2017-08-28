@@ -1,0 +1,29 @@
+<!--
+  Generated template for the CompletedOrdersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Completed Orders</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+<ion-list>
+<ion-item-sliding color="danger" *ngFor="let order of orders | async">
+<button ion-item detail-push (click)="viewItem(order)">
+  Customer Name: {{ order.customerName }}<br><br>
+  <b>Order Number:</b> {{ order.orderNumber }}<br><br> 
+</button>
+<ion-item-options side="left">
+  <button ion-button color="danger" icon-only (click)="removeCompletedItem(order)">
+    <ion-icon name="trash"></ion-icon>
+  </button>
+</ion-item-options>
+</ion-item-sliding>
+</ion-list>
+</ion-content>

@@ -1,14 +1,35 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-title>
-      Ionic Blank
+      Current Orders
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+<ion-list>
+  <!--<p><strong *ngIf="!this.orders">There are currently no orders. Please add an order.</strong></p>-->
+  <ion-item-sliding color="danger" *ngFor="let order of orders | async">
+    <button ion-item  detail-push (click)="viewItem(order)">
+      <ion-item>
+      Customer Name: {{ order.customerName }}<br><br>
+      </ion-item>
+      <!-- <b>Order Number:</b> {{ order.orderNumber }}<br><br> 
+        <b>Order Items:</b> {{ order.orderItems}} <br><br> -->
+        <ion-item color="light">
+        <b>Order Status:<br></b> {{ order.OrderStatus }}
+        </ion-item>
+    </button>
+    <ion-item-options side="right">
+      <button ion-button color="good" icon-only (click)="completedItem(order)" (click)="removeItem(order)">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </button>
+    </ion-item-options>
+    <ion-item-options side="left">
+      <button ion-button color="danger" icon-only (click)="removeItem(order)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
 </ion-content>
