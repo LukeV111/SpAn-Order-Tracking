@@ -34,6 +34,13 @@ export class FirebaseService {
       this.afd.list('/users/' + uid + '/CurrentOrders/').push(name);
   }
 
+
+addLead(uid, name) {
+    
+      this.afd.list('/users/' + uid + '/Leads/').push(name);
+  }
+
+
   completedItem(uid, name) {
     
       this.afd.list('/users/' + uid + '/CompletedOrders/').push(name);

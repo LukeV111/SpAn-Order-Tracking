@@ -1,0 +1,24 @@
+<div class="bar bar-header bar-calm"></div>
+
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Leads
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>  
+  <ion-item>
+      <ion-textarea rows="5" [(ngModel)]="lead.leadItems" placeholder="Leads"></ion-textarea>
+  </ion-item>
+  <button full ion-button color="stable" (click)="addLead()" (click)="showAlert()">Add Lead!</button>
+  <ion-list>
+    <ion-item-sliding color="danger" *ngFor="let lead of leadItems">
+      <ion-item>
+      <pre>{{ lead.leadItems }}</pre>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

@@ -35,8 +35,8 @@ removeOrderStatus(orderStatus) {
   this.firebaseService.removeOrderStatus(this.authUser.uid, orderStatus);
 }
 
-reorderItems(indexes){
-  this.orderStatuses = reorderArray(this.orderStatuses, indexes);
+reorderItems(name){
+  this.orderStatuses = reorderArray(this.orderStatuses, name);
 }
 
 }

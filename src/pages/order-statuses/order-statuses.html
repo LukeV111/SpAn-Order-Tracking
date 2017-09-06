@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>Order Details</ion-title>
+    <ion-title>Custom Order Statuses</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -24,8 +24,7 @@
 </ion-row>
  <button full ion-button color="stable" (click)="addOrderStatus()">Add Order Status!</button>
 
-<!--<ion-list reorder="true" (ionItemReorder)="reorderItems($event)">-->
-<ion-list>
+<ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
   <ion-item-sliding color="danger" *ngFor="let orderstatus of orderStatuses">
     <ion-item>
       {{ orderstatus.name }}

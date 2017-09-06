@@ -14,6 +14,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { CompletedOrdersPage } from '../pages/completed-orders/completed-orders';
 import { OrderStatusesPage } from '../pages/order-statuses/order-statuses';
 import { OrderDetailsPage } from '../pages/order-details/order-details';
+import { LeadsPage } from '../pages/leads/leads';
 //import { CompletedOrderDetailsPage } from '../pages/completed-order-details/completed-order-details';
 
 import { HttpModule } from '@angular/http';
@@ -44,6 +45,7 @@ const firebaseConfig = {
     CompletedOrdersPage,
     OrderDetailsPage,
     OrderStatusesPage,
+    LeadsPage,
     //CompletedOrderDetailsPage
 
   ],
@@ -67,6 +69,7 @@ const firebaseConfig = {
     CompletedOrdersPage,
     OrderDetailsPage,
     OrderStatusesPage,
+    LeadsPage,
     //CompletedOrderDetailsPage
 
   ],

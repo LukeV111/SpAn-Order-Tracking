@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { OrderDetailsPage } from '../order-details/order-details';
+import { LeadsPage } from '../leads/leads';
+
 
 @Component({
   selector: 'page-home',
@@ -36,6 +38,11 @@ export class HomePage {
 
   viewItem(order){ 
     this.navCtrl.push(OrderDetailsPage, order);
+  }
+
+  viewLeads(){ 
+    this.navCtrl.push(LeadsPage);
+    console.log("leads page")
   }
 
     getDate(datepar){
