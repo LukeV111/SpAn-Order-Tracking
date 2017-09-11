@@ -22,6 +22,7 @@ export class OrderStatusesPage {
     if (this.authUser) {
       this.db.list('/users/' + this.authUser.uid + '/OrderStatuses/').subscribe(items => {
         this.orderStatuses = items;
+        console.log("Before =>", this.orderStatuses);
       });
     }	
 	}
@@ -37,6 +38,12 @@ removeOrderStatus(orderStatus) {
 
 reorderItems(name){
   this.orderStatuses = reorderArray(this.orderStatuses, name);
+
+  //Saving to the database by overriding the orderStatuses that where there before. This is whay used set() instead of update().
+  const updateOrderStatuses = this.db.list('/users/' + this.authUser.uid);
+  updateOrderStatuses.set('/OrderStatuses/', this.orderStatuses).then(() =>{
+    console.log("Done updating");
+  }); //updateOrderStatuses.update(regUser.uid, userInfo)
 }
 
 }

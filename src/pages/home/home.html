@@ -14,7 +14,7 @@
 <ion-content>
 <ion-list>
   <!--<p><strong *ngIf="!this.orders">There are currently no orders. Please add an order.</strong></p>-->
-  <ion-item-sliding color="danger" *ngFor="let order of orders | async">
+  <ion-item-sliding color="danger" *ngFor="let order of orders">
     <button ion-item  detail-push (click)="viewItem(order)">
       <ion-item>
       Customer Name: {{ order.customerName }}<br><br>
