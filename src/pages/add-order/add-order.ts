@@ -61,9 +61,4 @@ export class AddOrderPage {
     this.navCtrl.push(HomePage)
   }
 
-clearText() {
-    console.log('Reset!')
-    this.order = []
-  }
-
 }

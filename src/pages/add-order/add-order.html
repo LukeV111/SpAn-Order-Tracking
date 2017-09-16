@@ -18,6 +18,9 @@
     <ion-item>
       <ion-textarea rows="5" [(ngModel)]="order.orderItems" placeholder="Order Items"></ion-textarea>
     </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="order.myDate"></ion-datetime>
+    </ion-item>
   <button full ion-button color="stable" (click)="addItem()" (click)="showAlert()">Add Order!</button>
-  <button full ion-button color="stable" (click)="completedItem()">Clear Text!</button>
 </ion-content>

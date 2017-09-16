@@ -18,7 +18,8 @@
 <button ion-item detail-push (click)="viewItem(order)">
   Customer Name: {{ order.customerName }}<br><br>
   <b>Order Number:</b> {{ order.orderNumber }}<br><br> 
-</button>
+  <b>Date of Order:</b> {{ order.myDate }}<br><br>
+  </button>
 <ion-item-options side="left">
   <button ion-button color="danger" icon-only (click)="removeCompletedItem(order)">
     <ion-icon name="trash"></ion-icon>
