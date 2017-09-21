@@ -15,7 +15,7 @@ import { CompletedOrdersPage } from '../pages/completed-orders/completed-orders'
 import { OrderStatusesPage } from '../pages/order-statuses/order-statuses';
 import { OrderDetailsPage } from '../pages/order-details/order-details';
 import { LeadsPage } from '../pages/leads/leads';
-//import { CompletedOrderDetailsPage } from '../pages/completed-order-details/completed-order-details';
+import { CompletedOrderDetailsPage } from '../pages/completed-order-details/completed-order-details'
 
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -46,7 +46,7 @@ const firebaseConfig = {
     OrderDetailsPage,
     OrderStatusesPage,
     LeadsPage,
-    //CompletedOrderDetailsPage
+    CompletedOrderDetailsPage,
 
   ],
   imports: [
@@ -70,7 +70,7 @@ const firebaseConfig = {
     OrderDetailsPage,
     OrderStatusesPage,
     LeadsPage,
-    //CompletedOrderDetailsPage
+    CompletedOrderDetailsPage,
 
   ],
   providers: [

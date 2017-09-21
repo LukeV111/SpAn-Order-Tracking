@@ -22,5 +22,11 @@
       <ion-label>Date</ion-label>
       <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="order.myDate"></ion-datetime>
     </ion-item>
+    <ion-item>
+      <ion-label>Set Status:</ion-label>
+        <ion-select [(ngModel)]="order.OrderStatus">
+          <ion-option *ngFor="let orderstatus of orderStatuses" [value] = "orderstatus.name">{{orderstatus.name}}</ion-option>
+        </ion-select>
+    </ion-item>
   <button full ion-button color="stable" (click)="addItem()" (click)="showAlert()">Add Order!</button>
 </ion-content>

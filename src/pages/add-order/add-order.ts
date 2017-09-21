@@ -15,6 +15,7 @@ export class AddOrderPage {
 
   orderItems: FirebaseListObservable<any[]>;
 
+  public myDate: String = new Date().toISOString();
   public order: any[];
   public orderStatuses: any[] = [];
   public authUser: any;
@@ -55,6 +56,13 @@ export class AddOrderPage {
 
   completedItem() {
     this.firebaseService.completedItem(this.authUser.uid,this.order);
+  }
+
+  saveStatus(order) {
+    const updateOrder = this.db.list('/users/' + this.authUser.uid + '/CurrentOrders/');
+    updateOrder.update(order.$key, order).then(() =>{
+      console.log("Saved");
+    });
   }
 
   toHome() {

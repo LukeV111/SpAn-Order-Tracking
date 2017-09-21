@@ -11,16 +11,43 @@
   </ion-navbar>
 </ion-header>
 
+
+<ion-content >
+<ion-card *ngFor="let order of orders" >
+  <button ion-item  detail-push (click)="viewItem(order)">
+    <ion-card-header >
+      <b>Customer Name:<br></b> {{ order.customerName }}
+    </ion-card-header>
+    <ion-card-content>
+      <b>Order Status:<br></b> {{ order.OrderStatus }}
+    </ion-card-content>
+  </button>
+  <hr>
+  <!--Buttons Below -->
+  <ion-row >
+    <ion-col>
+      <button ion-button color="good" block icon-centre clear large (click)="removeItem(order)" (click)="completedItem(order)" (click)="showAlertComplete()">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="danger" block icon-centre clear large (click)="removeItem(order)" (click)="showAlertDelete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
+</ion-content>
+
+<!-- Old Version of the list.
+
 <ion-content>
 <ion-list>
-  <!--<p><strong *ngIf="!this.orders">There are currently no orders. Please add an order.</strong></p>-->
-  <ion-item-sliding color="danger" *ngFor="let order of orders">
+  <ion-card *ngFor="let order of orders">
     <button ion-item  detail-push (click)="viewItem(order)">
       <ion-item>
       Customer Name: {{ order.customerName }}<br><br>
       </ion-item>
-      <!-- <b>Order Number:</b> {{ order.orderNumber }}<br><br> 
-        <b>Order Items:</b> {{ order.orderItems}} <br><br> -->
         <ion-item color="light">
         <b>Order Status:<br></b> {{ order.OrderStatus }}
         </ion-item>
@@ -35,6 +62,8 @@
         <ion-icon name="trash"></ion-icon>
       </button>
     </ion-item-options>
-  </ion-item-sliding>
+  </ion-card>
 </ion-list>
 </ion-content>
+
+-->

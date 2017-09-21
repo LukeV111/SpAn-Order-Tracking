@@ -4,18 +4,21 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseService } from './../../providers/firebase-service';
 import { AlertController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { CompletedOrdersPage } from '../completed-orders/completed-orders';
+
+
 
 @Component({
-  selector: 'completed-page-order-details',
+  selector: 'page-completed-order-details',
   templateUrl: 'completed-order-details.html',
 })
-
 export class CompletedOrderDetailsPage {
 
 	public order: any;
 	public orderStatuses: any[] = [];
 	public authUser: any;
-	constructor(private db: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController, public firebaseService: FirebaseService, public navParams: NavParams, private auth: AuthServiceProvider) {
+
+   	constructor(private db: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController, public firebaseService: FirebaseService, public navParams: NavParams, private auth: AuthServiceProvider) {
 
 		this.authUser = this.auth.getLoggedInUser();
 		if (this.authUser) {
@@ -25,5 +28,9 @@ export class CompletedOrderDetailsPage {
 			});
 		}
 	}
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CompletedOrderDetailsPage');
+  }
 
 }

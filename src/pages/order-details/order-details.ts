@@ -35,8 +35,6 @@ export class OrderDetailsPage {
 	    console.log("Saved");
 	  });
 	}
- 
-
 
    showAlert() {
     let alert = this.alertCtrl.create({
@@ -49,5 +47,23 @@ export class OrderDetailsPage {
   doneEditing(){ 
     this.navCtrl.push(HomePage);
   }
+
+ removeItem(order) {
+    this.firebaseService.removeItem(this.authUser.uid, order);
+  }
+
+  
+ completedItem(order) {
+    this.firebaseService.completedItem(this.authUser.uid, order);
+  }
+
+  showAlertComplete() {
+    let alert = this.alertCtrl.create({
+      title: 'Good Job!',
+      buttons: ['Thanks.']
+    });
+    alert.present();
+  }
+
 
 }

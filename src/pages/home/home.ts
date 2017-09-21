@@ -8,7 +8,7 @@ import { LeadsPage } from '../leads/leads';
 //Imports to make the new code work
 import { AngularFireDatabase } from 'angularfire2/database';
 import 'rxjs/add/operator/take'
-
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -22,7 +22,7 @@ export class HomePage {
   public orderStatuses: any[] = [];
   public authUser: any;
 
-  constructor(private db: AngularFireDatabase, public navCtrl: NavController, public firebaseService: FirebaseService, private auth: AuthServiceProvider) {
+  constructor(private db: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController, public firebaseService: FirebaseService, private auth: AuthServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -151,5 +151,20 @@ export class HomePage {
      return date;
   }
 
+  showAlertComplete() {
+    let alert = this.alertCtrl.create({
+      title: 'Good Job!',
+      buttons: ['Thanks.']
+    });
+    alert.present();
+  }
+
+   showAlertDelete() {
+    let alert = this.alertCtrl.create({
+      title: 'Order Deleted!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 
 }
