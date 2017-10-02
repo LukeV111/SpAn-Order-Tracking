@@ -4,7 +4,6 @@ import { NavController } from 'ionic-angular';
 // import { FirebaseListObservable } from 'angularfire2/database';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { OrderDetailsPage } from '../order-details/order-details';
-import { LeadsPage } from '../leads/leads';
 //Imports to make the new code work
 import { AngularFireDatabase } from 'angularfire2/database';
 import 'rxjs/add/operator/take'
@@ -139,11 +138,6 @@ export class HomePage {
     this.navCtrl.push(OrderDetailsPage, order);
   }
 
-  viewLeads(){ 
-    this.navCtrl.push(LeadsPage);
-    console.log("leads page")
-  }
-
     getDate(datepar){
 
      var dateParts = datepar.split("-");
@@ -162,6 +156,23 @@ export class HomePage {
    showAlertDelete() {
     let alert = this.alertCtrl.create({
       title: 'Order Deleted!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+//Status updates below.
+
+  saveStatus(order) {
+    const updateOrder = this.db.list('/users/' + this.authUser.uid + '/CurrentOrders/');
+    updateOrder.update(order.$key, order).then(() =>{
+      console.log("Saved");
+    });
+  }
+
+   showAlertStatus() {
+    let alert = this.alertCtrl.create({
+      title: 'Order Status Updated!',
       buttons: ['OK']
     });
     alert.present();

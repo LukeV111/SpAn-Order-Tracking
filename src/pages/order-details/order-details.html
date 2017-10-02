@@ -7,11 +7,10 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>Order Details</ion-title>
+    <ion-title align="center">Order Details</ion-title>
   </ion-navbar>
 
 </ion-header>
-
 
 <ion-content padding>
 
@@ -29,14 +28,21 @@
 <ion-item>
     <b>Current Status:<br><br></b> {{ order.OrderStatus }}
 </ion-item>
+<!--
 <ion-item>
  -<ion-label>Update Status:</ion-label>
   <ion-select [(ngModel)]="order.OrderStatus" (ionChange)="saveStatus(order)">
     <ion-option *ngFor="let orderstatus of orderStatuses" [value] = "orderstatus.name">{{orderstatus.name}}</ion-option>
   </ion-select>
 </ion-item>
+-->
 </ion-list>
-<button full ion-button color="stable" (click)="removeItem(order)" (click)="completedItem(order)" (click)="showAlertComplete()">Mark As Completed.</button>
+<button ion-button color="lightgrn" (click)="removeItem(order)" (click)="completedItem(order)" (click)="showAlertComplete()">Mark As Completed</button>
+<button ion-button color="light" (click)="removeItem(order)" (click)="archiveItem(order)" (click)="showAlertArchive()">Archive Order</button>
+<button ion-button color="light" (click)="showAlertDelete()" (click)="removeItem(order)">Delete Order</button>
 </ion-content>
+
+<button type="button" ng-really-message="Are you sure?"
+ng-really-click="delete()">Delete</button>
 
 

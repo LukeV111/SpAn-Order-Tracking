@@ -22,6 +22,12 @@ export class FirebaseService {
       return this.afd.list('/users/' + uid + '/CompletedOrders/');
   }
 
+
+  getArchivedOrders(uid) {
+    
+      return this.afd.list('/users/' + uid + '/Archive/');
+  }
+
   getOrderStatuses(uid) {
     
       return this.afd.list('/users/' + uid + '/OrderStatuses/');
@@ -34,10 +40,9 @@ export class FirebaseService {
       this.afd.list('/users/' + uid + '/CurrentOrders/').push(name);
   }
 
-
-addLead(uid, name) {
+addArchive(uid, name) {
     
-      this.afd.list('/users/' + uid + '/Leads/').push(name);
+      this.afd.list('/users/' + uid + '/Archive/').push(name);
   }
 
 
@@ -45,6 +50,16 @@ addLead(uid, name) {
     
       this.afd.list('/users/' + uid + '/CompletedOrders/').push(name);
   } //Moves item to the databse of completed items.
+
+  completedItemPutBack(uid, name) {
+    
+      this.afd.list('/users/' + uid + '/CurrentOrders/').push(name);
+  } //Moves item back to the databse of current orders.
+
+  ArchivedItemPutBack(uid, name) {
+    
+      this.afd.list('/users/' + uid + '/CurrentOrders/').push(name);
+  } //Moves item back to the databse of current orders.
 
   removeItem(uid, id) {
     
@@ -54,6 +69,11 @@ addLead(uid, name) {
   removeCompletedItem(uid, name) {
     
       this.afd.list('/users/' + uid + '/CompletedOrders/').remove(name);
+  }
+
+  removeArchivedItem(uid, name) {
+    
+      this.afd.list('/users/' + uid + '/Archive/').remove(name);
   }
 
   addOrderStatus(uid, name) {

@@ -1,38 +1,42 @@
 <ion-header>
   <ion-navbar color="danger">
-    <ion-title>
+    <ion-title align="center">
       Current Orders
     </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="viewLeads()">
-        <ion-icon name="clipboard" ></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content >
-<ion-card *ngFor="let order of orders" >
-  <button ion-item  detail-push (click)="viewItem(order)">
-    <ion-card-header >
-      <b>Customer Name:<br></b> {{ order.customerName }}
+<ion-content>
+<ion-card *ngFor="let order of orders" style="background-color: #EDEDED">
+    <ion-card-header align="center">
+      <b>Customer Name<br></b> {{ order.customerName }}<br>
     </ion-card-header>
-    <ion-card-content>
-      <b>Order Status:<br></b> {{ order.OrderStatus }}
-    </ion-card-content>
-  </button>
   <hr>
+    <ion-card-content align="center">
+     {{ order.OrderStatus }}
+    </ion-card-content>
+  
   <!--Buttons Below -->
-  <ion-row >
+  <ion-row>
     <ion-col>
-      <button ion-button color="good" block icon-centre clear large (click)="removeItem(order)" (click)="completedItem(order)" (click)="showAlertComplete()">
-        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <button ion-button color="lightble" block icon-centre large (click)="viewItem(order)">
+        <ion-icon name="eye"></ion-icon>
       </button>
     </ion-col>
+
     <ion-col>
-      <button ion-button color="danger" block icon-centre clear large (click)="removeItem(order)" (click)="showAlertDelete()">
-        <ion-icon name="trash"></ion-icon>
+      <button ion-button icon-only color="lghtprpl" style="text-transform: none;" block icon-centre large>
+      <ion-select [(ngModel)]="order.OrderStatus" (ionChange)="saveStatus(order)">
+        <ion-option *ngFor="let orderstatus of orderStatuses" [value] = "orderstatus.name">{{orderstatus.name}}</ion-option> 
+      </ion-select>
+        <ion-icon name="stats"></ion-icon>
+      </button>
+    </ion-col>
+   
+   <ion-col>
+      <button ion-button color="lightgrn" block icon-centre large (click)="removeItem(order)" (click)="completedItem(order)" (click)="showAlertComplete()">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
       </button>
     </ion-col>
   </ion-row>

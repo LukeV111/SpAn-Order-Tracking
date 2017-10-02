@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>Completed Orders</ion-title>
+    <ion-title align="center">Completed Orders</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -21,8 +21,11 @@
   <b>Date of Order:</b> {{ order.myDate }}<br><br>
   </button>
 <ion-item-options side="left">
-  <button ion-button color="danger" icon-only (click)="removeCompletedItem(order)">
+  <button ion-button color="lightred" icon-only (click)="removeCompletedItem(order)">
     <ion-icon name="trash"></ion-icon>
+  </button>
+  <button ion-button color="lightgrn" icon-only (click)="completedItemPutBack(order)" (click)="removeCompletedItem(order)">
+    <ion-icon name="rewind"></ion-icon>
   </button>
 </ion-item-options>
 </ion-item-sliding>

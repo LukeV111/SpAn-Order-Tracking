@@ -6,37 +6,37 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { CompletedOrderDetailsPage } from '../completed-order-details/completed-order-details';
 
 @Component({
-  selector: 'page-completed-orders',
-  templateUrl: 'completed-orders.html',
+  selector: 'page-archive',
+  templateUrl: 'archive.html',
 })
-export class CompletedOrdersPage {
+export class ArchivePage {
 
-	orders: FirebaseListObservable<any[]>;
+  orders: FirebaseListObservable<any[]>;
   public authUser: any;
 
   constructor(public navCtrl: NavController, public firebaseService: FirebaseService, private auth: AuthServiceProvider) {
 
     this.authUser = this.auth.getLoggedInUser();
     if (this.authUser) {
-      this.orders = this.firebaseService.getCompletedOrders(this.authUser.uid);
+      this.orders = this.firebaseService.getArchivedOrders(this.authUser.uid);
     }
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CompletedOrdersPage');
+    console.log('ionViewDidLoad ArchivePage');
   }
 
-  removeCompletedItem(id) {
-    this.firebaseService.removeCompletedItem(this.authUser.uid, id);
+  removeArchivedItem(id) {
+    this.firebaseService.removeArchivedItem(this.authUser.uid, id);
   }
 
-  viewItem(order){ 
-    this.navCtrl.push(CompletedOrderDetailsPage, order);
+// Trying to add the navCTRL to completed orders.
+
+
+  ArchivedItemPutBack(order) {
+    this.firebaseService.ArchivedItemPutBack(this.authUser.uid, order);
   }
 
-  completedItemPutBack(order) {
-    this.firebaseService.completedItemPutBack(this.authUser.uid, order);
-  }
 
 }

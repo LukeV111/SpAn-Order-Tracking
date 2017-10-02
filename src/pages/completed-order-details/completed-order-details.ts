@@ -4,7 +4,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseService } from './../../providers/firebase-service';
 import { AlertController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { CompletedOrdersPage } from '../completed-orders/completed-orders';
 
 
 

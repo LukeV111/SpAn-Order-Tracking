@@ -44,6 +44,22 @@ export class OrderDetailsPage {
     alert.present();
   }
 
+  showAlertDelete() {
+    let alert = this.alertCtrl.create({
+      title: 'Are you sure?',
+      buttons: ['OK'],
+    });
+    alert.present();
+  }
+
+  showAlertArchive() {
+    let alert = this.alertCtrl.create({
+      title: 'Order Archved!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
   doneEditing(){ 
     this.navCtrl.push(HomePage);
   }
@@ -55,6 +71,10 @@ export class OrderDetailsPage {
   
  completedItem(order) {
     this.firebaseService.completedItem(this.authUser.uid, order);
+  }
+
+  archiveItem(order) {
+    this.firebaseService.addArchive(this.authUser.uid, order);
   }
 
   showAlertComplete() {

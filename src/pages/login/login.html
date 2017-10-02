@@ -6,25 +6,25 @@
 -->
 <ion-header>
 
+
   <ion-navbar color="danger">
-    <ion-title>Login</ion-title>
+    <ion-title align="center">Welcome</ion-title>
   </ion-navbar>
+
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding align="center">
 
+	<ion-img [width]="100" [height]="100" src="http://spanorders.com/login.png"></ion-img>
 	<ion-item>
-		<ion-label floating>Email Address</ion-label>
-		<ion-input type="text" [(ngModel)]="user.email"></ion-input>
+		<ion-input padding-horizontal align="center" type="text" placeholder="Email Address" [(ngModel)]="user.email"></ion-input>
 	</ion-item>
-
 	<ion-item>
-		<ion-label floating>Password</ion-label>
-		<ion-input type="password" [(ngModel)]="user.password"></ion-input>
+		<ion-input padding-horizontal type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
 	</ion-item>
-
+	<br><br>
 	<button ion-button (click)="login(user)">Login</button>
 	<button ion-button color="light" (click)="register()">Register</button>
 

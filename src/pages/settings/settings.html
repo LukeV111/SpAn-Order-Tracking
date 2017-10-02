@@ -7,32 +7,31 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>Settings</ion-title>
+    <ion-title align="center">Admin</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-<ion-item>
-<ion-list inset>
+<ion-list>
+<ion-item-divider>
+  Custom Settings
+</ion-item-divider>
 	<button ion-item  detail-push (click)="updatestatuses()">
     Order Statuses
+     </button>
+<ion-item-divider>
+  General
+</ion-item-divider>
+    <button ion-item  detail-push (click)="viewArchive()">
+    View Archive
   </button>
-</ion-list>
-</ion-item>
-<ion-item>
-<ion-list inset>
   <button ion-item  detail-push (click)="showAlert()">
     Contact Us
   </button>
-</ion-list>
-</ion-item>
-<ion-item>
-<ion-list inset>
   <button ion-item  detail-push (click)="signOut()">
     Log Out
   </button>
 </ion-list>
-</ion-item>
 </ion-content>

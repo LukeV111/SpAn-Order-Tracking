@@ -3,6 +3,7 @@ import { NavController, Nav, NavParams, AlertController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
 import { OrderStatusesPage } from '../order-statuses/order-statuses';
+import { ArchivePage } from '../archive/archive';
 
 
 
@@ -36,4 +37,10 @@ export class SettingsPage {
       this.nav.setRoot(LoginPage);
       console.log("Sign Out");
   }
+
+  viewArchive(){ 
+    this.navCtrl.push(ArchivePage);
+    console.log("archive page")
+  }
+
 }

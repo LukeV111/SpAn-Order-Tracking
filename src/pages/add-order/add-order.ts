@@ -6,6 +6,7 @@ import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { HomePage } from '../home/home';
+import { Control } from "angular2/common";
 
 @Component({
   selector: 'page-add-order',
@@ -13,7 +14,7 @@ import { HomePage } from '../home/home';
 })
 export class AddOrderPage {
 
-  orderItems: FirebaseListObservable<any[]>;
+  //orderItems: FirebaseListObservable<any[]>;
 
   public myDate: String = new Date().toISOString();
   public order: any[];
@@ -51,7 +52,7 @@ export class AddOrderPage {
 
   addItem() {
     this.firebaseService.addItem(this.authUser.uid,this.order);
-    this.authUser.uid,this.order = [];
+  this.authUser.uid,this.order = [''];
   }
 
   completedItem() {
@@ -67,6 +68,11 @@ export class AddOrderPage {
 
   toHome() {
     this.navCtrl.push(HomePage)
+  }
+
+  clearText() {
+    this.authUser.uid,this.order = [];
+    console.log("Trying to clear text");
   }
 
 }

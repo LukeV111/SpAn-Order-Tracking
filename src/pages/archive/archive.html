@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title align="center">
+      Archive
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let order of orders | async" style="background-color:#EDEDED">
+    <ion-card-header align="center">
+      <b>Customer Name<br></b> {{ order.customerName }}<br>
+    </ion-card-header>
+  <hr>
+    <ion-card-content align="center">
+     <b>Order Number:</b> {{ order.orderNumber }}<br><br> 
+  <b>Date of Order:</b> {{ order.myDate }}<br><br>
+  <b>Order Items:<br><br></b> <pre>{{ order.orderItems }}</pre> <br><br>
+    </ion-card-content>
+  <ion-row>
+    <ion-col>
+      <button ion-button color="lightble" block icon-centre large (click)="ArchivedItemPutBack(order)" (click)="removeArchivedItem(order)">
+        Put Back
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
+</ion-content>

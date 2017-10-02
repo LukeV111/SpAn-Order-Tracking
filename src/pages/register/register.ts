@@ -6,7 +6,7 @@ import 'rxjs/add/operator/take'
 import * as firebase from 'firebase/app';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { TabsPage } from '../tabs/tabs';
-
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-register',
@@ -16,7 +16,7 @@ export class RegisterPage {
 
 user: any = {};
 
-  constructor(private auth: AuthServiceProvider, private db: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(private auth: AuthServiceProvider, private db: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
 
   register(user: User) {
     let email = this.user.email;
