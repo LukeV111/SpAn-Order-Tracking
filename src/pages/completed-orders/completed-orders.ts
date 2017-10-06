@@ -39,4 +39,8 @@ export class CompletedOrdersPage {
     this.firebaseService.completedItemPutBack(this.authUser.uid, order);
   }
 
+  archiveItem(order) {
+    this.firebaseService.addArchive(this.authUser.uid, order);
+  }
+
 }
