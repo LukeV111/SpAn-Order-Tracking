@@ -33,7 +33,6 @@ export class AddCustomerPage {
 
   }
 
-
   addCustomer() {
     this.firebaseService.addCustomer(this.authUser.uid,this.customer);
     this.authUser.uid,this.customer = [''];
