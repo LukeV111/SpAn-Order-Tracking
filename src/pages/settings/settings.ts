@@ -4,6 +4,8 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
 import { OrderStatusesPage } from '../order-statuses/order-statuses';
 import { ArchivePage } from '../archive/archive';
+import { AddCustomerPage } from '../add-customer/add-customer';
+import { CustomerListPage } from '../customer-list/customer-list';
 
 
 
@@ -41,6 +43,16 @@ export class SettingsPage {
   viewArchive(){ 
     this.navCtrl.push(ArchivePage);
     console.log("archive page")
+  }
+
+  viewAddCustomer(){ 
+    this.navCtrl.push(AddCustomerPage);
+    console.log("add customer page")
+  }
+
+  viewCustomerList(){ 
+    this.navCtrl.push(CustomerListPage);
+    console.log("customer list page")
   }
 
 }

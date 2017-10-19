@@ -16,6 +16,8 @@ import { OrderStatusesPage } from '../pages/order-statuses/order-statuses';
 import { OrderDetailsPage } from '../pages/order-details/order-details';
 import { ArchivePage } from '../pages/archive/archive';
 import { CompletedOrderDetailsPage } from '../pages/completed-order-details/completed-order-details'
+import { AddCustomerPage } from '../pages/add-customer/add-customer';
+import { CustomerListPage } from '../pages/customer-list/customer-list';
 
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -47,6 +49,8 @@ const firebaseConfig = {
     OrderStatusesPage,
     ArchivePage,
     CompletedOrderDetailsPage,
+    AddCustomerPage,
+    CustomerListPage,
 
   ],
   imports: [
@@ -71,6 +75,8 @@ const firebaseConfig = {
     OrderStatusesPage,
     ArchivePage,
     CompletedOrderDetailsPage,
+    AddCustomerPage,
+    CustomerListPage,
 
   ],
   providers: [

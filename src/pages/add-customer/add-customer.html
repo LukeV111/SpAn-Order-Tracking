@@ -1,0 +1,19 @@
+<div class="bar bar-header bar-calm"></div>
+
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title align="center">
+      Add Customer
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding align ="center">  
+  <ion-item>
+      <ion-input type="text" [(ngModel)]="customer.customerName" placeholder="Customer Name:"></ion-input>
+  </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="customer.customerEmail" placeholder="Customer Email:"></ion-input>
+  </ion-item>
+  <button ion-button color="stable" (click)="addCustomer(customer)">Add Customer</button>
+</ion-content>

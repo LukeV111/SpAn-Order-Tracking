@@ -28,6 +28,11 @@ export class FirebaseService {
       return this.afd.list('/users/' + uid + '/Archive/');
   }
 
+  getCustomerList(uid) {
+    
+      return this.afd.list('/users/' + uid + '/Customers/');
+  }
+
   getOrderStatuses(uid) {
     
       return this.afd.list('/users/' + uid + '/OrderStatuses/');
@@ -36,9 +41,14 @@ export class FirebaseService {
 //Adding item:
 
   addItem(uid, name) {
-    
       this.afd.list('/users/' + uid + '/CurrentOrders/').push(name);
-  }
+  }    
+
+
+addCustomer(uid, name) {
+      this.afd.list('/users/' + uid + '/Customers/').push(name);
+  }    
+
 
 addArchive(uid, name) {
     
