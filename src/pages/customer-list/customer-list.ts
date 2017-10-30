@@ -14,7 +14,7 @@ import { Control } from "angular2/common";
 })
 export class CustomerListPage {
 
-  orders: FirebaseListObservable<any[]>;
+  customers: FirebaseListObservable<any[]>;
   public authUser: any;
 
   constructor(private db: AngularFireDatabase, 
@@ -27,10 +27,15 @@ export class CustomerListPage {
 
     this.authUser = this.auth.getLoggedInUser();
     if (this.authUser) {
-      this.orders = this.firebaseService.getCustomerList(this.authUser.uid);
+      this.customers = this.firebaseService.getCustomerList(this.authUser.uid);
     }
 
 
   }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CustomerListPage');
+  }
+
 
 }

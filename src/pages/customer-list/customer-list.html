@@ -1,23 +1,20 @@
 <div class="bar bar-header bar-calm"></div>
 
 <ion-header>
-  <ion-navbar color="danger">
-    <ion-title align="center">
-      Customer List
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar color="danger">
+        <ion-title align="center">
+            Customer List
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
-
 <ion-content>
-<ion-card *ngFor="let customer of customers | async" style="background-color:#EDEDED">
-    <ion-card-header align="center">
-      <b>Customer Name<br></b> {{ customer.customerName }}<br>
-    </ion-card-header>
-  <hr>
-    <ion-card-content align="center">
-     <b>Order Email:</b> {{ customer.customerEmail }}<br><br> 
-
-    </ion-card-content>
-  </ion-card>
+    <ion-list *ngFor="let customer of customers | async">
+        <ion-item>
+            <b>Customer Name<br></b> {{ customer.customerName }}<br><br>
+            <b>Customer Email:</b><br> {{ customer.customerEmail }}<br><br>
+            <b>Customer Code:</b><br> {{ customer.customerCode }}<br><br>
+        </ion-item>
+        <hr>
+    </ion-list>
 </ion-content>

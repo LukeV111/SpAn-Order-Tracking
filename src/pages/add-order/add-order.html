@@ -1,32 +1,32 @@
 <div class="bar bar-header bar-calm"></div>
 
 <ion-header>
-  <ion-navbar color="danger">
-    <ion-title align="center">
-      Add Order
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar color="danger">
+        <ion-title align="center">
+            Add Order
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding align ="center">  
-  <ion-item>
-      <ion-input type="text" [(ngModel)]="order.customerName" placeholder="Customer Name:"></ion-input>
-  </ion-item>
+<ion-content padding align="center">
     <ion-item>
-      <ion-input type="text" [(ngModel)]="order.orderNumber" placeholder="Order Number:"></ion-input>
-  </ion-item>
-    <ion-item>
-      <ion-textarea rows="5" [(ngModel)]="order.orderItems" placeholder="Order Items:"></ion-textarea>
+        <ion-input type="text" [(ngModel)]="order.customerName" placeholder="Customer Name:"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="order.myDate"></ion-datetime>
+        <ion-input type="text" [(ngModel)]="order.orderNumber" placeholder="Order Number:"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Set Status:</ion-label>
+        <ion-textarea rows="5" [(ngModel)]="order.orderItems" placeholder="Order Items:"></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="order.myDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>Set Status:</ion-label>
         <ion-select [(ngModel)]="order.OrderStatus">
-          <ion-option *ngFor="let orderstatus of orderStatuses" [value] = "orderstatus.name">{{orderstatus.name}}</ion-option>
+            <ion-option *ngFor="let orderstatus of orderStatuses" [value]="orderstatus.name">{{orderstatus.name}}</ion-option>
         </ion-select>
     </ion-item>
-  <button ion-button color="stable" (click)="addItem(order)" (click)="showAlert()">Add Order</button>
+    <button ion-button color="stable" (click)="addItem(order)" (click)="showAlert()">Add Order</button>
 </ion-content>
