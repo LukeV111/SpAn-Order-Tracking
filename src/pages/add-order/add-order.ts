@@ -20,6 +20,7 @@ export class AddOrderPage {
   public order: any[];
   public orderStatuses: any[] = [];
   public authUser: any;
+  public customers: any[] = [];
 
   constructor(private db: AngularFireDatabase, 
     public navCtrl: NavController, 
@@ -33,6 +34,9 @@ export class AddOrderPage {
       this.order = this.navParams.data;
       this.db.list('/users/' + this.authUser.uid + '/OrderStatuses/').subscribe(items => {
         this.orderStatuses = items;
+      })
+      this.db.list('/users/' + this.authUser.uid + '/Customers/').subscribe(items => {
+        this.customers = items;
       });
     }
 

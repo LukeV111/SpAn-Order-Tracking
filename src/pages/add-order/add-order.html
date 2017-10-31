@@ -9,9 +9,16 @@
 </ion-header>
 
 <ion-content padding align="center">
+    <!-- This is where you need to put the drop down list -->
     <ion-item>
-        <ion-input type="text" [(ngModel)]="order.customerName" placeholder="Customer Name:"></ion-input>
+        <ion-label>Customer Name:</ion-label>
+        <ion-select [(ngModel)]="order.customerName">
+            <ion-option *ngFor="let customer of customers">{{ customer.customerName }}</ion-option>
+        </ion-select>
     </ion-item>
+    <!--  <ion-item>
+        <ion-input type="text" [(ngModel)]="order.customerName" placeholder="Customer Name:"></ion-input>
+    </ion-item> -->
     <ion-item>
         <ion-input type="text" [(ngModel)]="order.orderNumber" placeholder="Order Number:"></ion-input>
     </ion-item>
