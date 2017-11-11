@@ -9,6 +9,7 @@
 </ion-header>
 
 <ion-content>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
     <!-- Insert search bar here https://www.joshmorony.com/high-performance-list-filtering-in-ionic-2/-->
     <ion-list *ngFor="let customer of customers | async">
         <ion-item>

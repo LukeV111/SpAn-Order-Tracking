@@ -25,6 +25,7 @@ import { AngularFireModule } from 'angularfire2';
 import { FirebaseService } from './../providers/firebase-service';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { DataProvider } from '../providers/data/data';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC7htrI1a0PAxNAD9vr61VW7WHd2q9u0c4",
@@ -84,7 +85,8 @@ const firebaseConfig = {
     SplashScreen,
     FirebaseService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AuthServiceProvider
+    AuthServiceProvider,
+    DataProvider
   ]
 })
 export class AppModule { }
