@@ -6,27 +6,25 @@
 -->
 <ion-header>
 
-  <ion-navbar color="danger">
-    <ion-title align="center">Completed Order Details</ion-title>
-  </ion-navbar>
+    <ion-navbar color="danger">
+        <ion-title align="center">Completed Order Details</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
 
-<ion-list>
-<ion-item>
- <b>Customer Name:<br></b> {{ order.customerName }}<br><br>
-  <b>Order Number:<br></b> {{ order.orderNumber }}<br><br>
-</ion-item>
-<ion-item text-wrap >
-    <b>Order Items:<br><br></b> <pre>{{ order.orderItems }}</pre> <br><br>
-</ion-item>
-<ion-item>
-<b>Order Date:<br></b> {{ order.myDate }}<br><br>
-</ion-item>
-</ion-list>
+    <ion-list>
+        <ion-item>
+            <b>Customer Name:<br></b> {{ order.customerName }}<br><br>
+            <b>Order Number:<br></b> {{ order.orderNumber }}<br><br>
+        </ion-item>
+        <ion-item text-wrap>
+            <b>Order Items:<br><br></b> <pre>{{ order.orderItems }}</pre> <br><br>
+        </ion-item>
+        <ion-item>
+            <b>Order Date:<br></b> {{ order.myDate }}<br><br>
+        </ion-item>
+    </ion-list>
 </ion-content>
-
-

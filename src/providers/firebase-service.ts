@@ -81,6 +81,11 @@ addArchive(uid, name) {
       this.afd.list('/users/' + uid + '/CompletedOrders/').remove(name);
   }
 
+  removeCustomer(uid, name) {
+
+        this.afd.list('/users/' + uid + '/Customers/').remove(name);
+    }
+
   removeArchivedItem(uid, name) {
     
       this.afd.list('/users/' + uid + '/Archive/').remove(name);

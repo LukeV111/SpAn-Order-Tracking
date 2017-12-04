@@ -8,9 +8,9 @@
     </ion-navbar>
 </ion-header>
 
+<!--
 <ion-content>
-    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
-    <!-- Insert search bar here https://www.joshmorony.com/high-performance-list-filtering-in-ionic-2/-->
+    <ion-searchbar></ion-searchbar>
     <ion-list *ngFor="let customer of customers | async">
         <ion-item>
             <b>Customer Name<br></b> {{ customer.customerName }}<br><br>
@@ -18,5 +18,26 @@
             <b>Customer Code:</b><br> {{ customer.customerCode }}<br><br>
         </ion-item>
         <hr>
+    </ion-list>
+</ion-content>
+-->
+
+
+<ion-content>
+    <ion-searchbar></ion-searchbar>
+    <ion-list>
+        <ion-item-sliding color="danger" *ngFor="let customer of customers | async">
+
+            <button ion-item detail-push (click)="viewCustomer(customer)"> 
+            <b>Customer Name<br></b> {{ customer.customerName }}<br><br>
+            <b>Customer Email:</b><br> {{ customer.customerEmail }}<br><br>
+            <b>Customer Code:</b><br> {{ customer.customerCode }}<br><br>
+  </button>
+            <ion-item-options side="left">
+                <button ion-button color="lightred" icon-only (click)="removeCustomer(customer)">
+    <ion-icon name="trash"></ion-icon>
+  </button>
+            </ion-item-options>
+        </ion-item-sliding>
     </ion-list>
 </ion-content>

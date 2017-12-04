@@ -18,6 +18,7 @@ import { ArchivePage } from '../pages/archive/archive';
 import { CompletedOrderDetailsPage } from '../pages/completed-order-details/completed-order-details'
 import { AddCustomerPage } from '../pages/add-customer/add-customer';
 import { CustomerListPage } from '../pages/customer-list/customer-list';
+import { CustomerDetailsPage } from '../pages/customer-details/customer-details';
 
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -25,7 +26,6 @@ import { AngularFireModule } from 'angularfire2';
 import { FirebaseService } from './../providers/firebase-service';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
-import { DataProvider } from '../providers/data/data';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC7htrI1a0PAxNAD9vr61VW7WHd2q9u0c4",
@@ -52,6 +52,7 @@ const firebaseConfig = {
     CompletedOrderDetailsPage,
     AddCustomerPage,
     CustomerListPage,
+    CustomerDetailsPage,
 
   ],
   imports: [
@@ -78,6 +79,7 @@ const firebaseConfig = {
     CompletedOrderDetailsPage,
     AddCustomerPage,
     CustomerListPage,
+    CustomerDetailsPage,
 
   ],
   providers: [
@@ -86,7 +88,6 @@ const firebaseConfig = {
     FirebaseService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthServiceProvider,
-    DataProvider
   ]
 })
 export class AppModule { }
