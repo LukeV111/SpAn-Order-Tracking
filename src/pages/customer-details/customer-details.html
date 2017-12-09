@@ -15,5 +15,12 @@
             <b>Customer Email:</b><br> {{ customer.customerEmail }}<br><br>
             <b>Customer Code:</b><br> {{ customer.customerCode }}<br><br>
         </ion-item>
+        <ion-item>
+            <ion-label>Would you like to track this customer?</ion-label>
+            <ion-select [(ngModel)]="order.customerName">
+                <ion-option *ngFor="let customer of customers">{{ customer.customerName }}</ion-option>
+            </ion-select>
+        </ion-item>
     </ion-list>
+
 </ion-content>
