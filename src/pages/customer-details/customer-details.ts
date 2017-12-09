@@ -21,9 +21,18 @@ export class CustomerDetailsPage {
    	constructor(private db: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController, public firebaseService: FirebaseService, public navParams: NavParams, private auth: AuthServiceProvider) {
 
 				this.authUser = this.auth.getLoggedInUser();
-				if (this.authUser) {
-					this.customer = this.navParams.data;
+			  if (this.authUser) {
+				  this.customer = this.navParams.data;
+				  this.db.list('/users/' + this.authUser.uid + '/Customers/').subscribe(items => {
+				  });
+			  };
 	}
+
+	saveTracking(customer) {
+		const updateTracking = this.db.list('/users/' + this.authUser.uid + '/Customers/');
+		updateTracking.update(customer.$key, customer).then(() => {
+			console.log("Saved");
+		});
 }
 
 }

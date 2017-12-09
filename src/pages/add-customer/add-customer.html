@@ -18,5 +18,12 @@
     <ion-item>
         <ion-input type="text" [(ngModel)]="customer.customerCode" placeholder="Customer Code:"></ion-input>
     </ion-item>
+    <ion-item padding>
+        <ion-label>Track Customer?</ion-label>
+        <ion-select [(ngModel)]="customer.customerTracking">
+            <ion-option value="Yes">Yes</ion-option>
+            <ion-option value="No">No</ion-option>
+        </ion-select>
+    </ion-item>
     <button ion-button color="stable" (click)="addCustomer(customer)">Add Customer</button>
 </ion-content>

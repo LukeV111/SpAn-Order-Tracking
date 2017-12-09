@@ -21,7 +21,7 @@ export class AddCustomerPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public alertCtrl: AlertController, 
-    public firebaseService: FirebaseService, 
+    public firebaseService: FirebaseService,  
     private auth: AuthServiceProvider) {
 
     this.authUser = this.auth.getLoggedInUser();
@@ -37,5 +37,7 @@ export class AddCustomerPage {
     this.firebaseService.addCustomer(this.authUser.uid,this.customer);
     this.authUser.uid,this.customer = [''];
   };
+
+  //Insert Customer Tracking Yes No From Database here.
 
 }

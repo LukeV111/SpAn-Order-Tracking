@@ -28,6 +28,11 @@ export class FirebaseService {
       return this.afd.list('/users/' + uid + '/Archive/');
   }
 
+    getCustomerTracking() {
+
+        return this.afd.list('/customerTracking/');
+    }
+
   getCustomerList(uid) {
     
       return this.afd.list('/users/' + uid + '/Customers/');
