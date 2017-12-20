@@ -10,6 +10,9 @@
 
 <ion-content padding align="center">
     <ion-item>
+        <ion-input type="text" [(ngModel)]="customer.companyName" placeholder="Company Name:"></ion-input>
+    </ion-item>
+    <ion-item>
         <ion-input type="text" [(ngModel)]="customer.customerName" placeholder="Customer Name:"></ion-input>
     </ion-item>
     <ion-item>
@@ -21,7 +24,7 @@
     <ion-item padding>
         <ion-label>Track Customer?</ion-label>
         <ion-select [(ngModel)]="customer.customerTracking">
-            <ion-option value="Yes">Yes</ion-option>
+            <ion-option selected="true" value="Yes">Yes</ion-option>
             <ion-option value="No">No</ion-option>
         </ion-select>
     </ion-item>

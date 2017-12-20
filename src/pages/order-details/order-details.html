@@ -6,29 +6,30 @@
 -->
 <ion-header>
 
-  <ion-navbar color="danger">
-    <ion-title align="center">Order Details</ion-title>
-  </ion-navbar>
+    <ion-navbar color="danger">
+        <ion-title align="center">Order Details</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
 
-<ion-list>
-<ion-item>
- <b>Customer Name:<br></b> {{ order.customerName }}<br><br>
-  <b>Order Number:<br></b> {{ order.orderNumber }}<br><br>
-</ion-item>
-<ion-item text-wrap >
-    <b>Order Items:<br><br></b> <pre>{{ order.orderItems }}</pre> <br><br>
-</ion-item>
-<ion-item>
-<b>Order Date:<br></b> {{ order.myDate }}<br><br>
-</ion-item>
-<ion-item>
-    <b>Current Status:<br><br></b> {{ order.OrderStatus }}
-</ion-item>
-<!--
+    <ion-list>
+        <ion-item>
+            <b>Company Name:<br></b> {{ order.companyName }}<br><br>
+            <b>Order Number:<br></b> {{ order.orderNumber }}<br><br>
+        </ion-item>
+        <ion-item text-wrap>
+            <b>Order Items:<br><br></b> <pre>{{ order.orderItems }}</pre> <br><br>
+        </ion-item>
+        <ion-item>
+            <b>Order Date:<br></b> {{ order.myDate }}<br><br>
+        </ion-item>
+        <ion-item>
+            <b>Current Status:<br><br></b> {{ order.OrderStatus }}
+        </ion-item>
+
+        <!--
 <ion-item>
  -<ion-label>Update Status:</ion-label>
   <ion-select [(ngModel)]="order.OrderStatus" (ionChange)="saveStatus(order)">
@@ -36,13 +37,10 @@
   </ion-select>
 </ion-item>
 -->
-</ion-list>
-<button ion-button color="lightgrn" (click)="removeItem(order)" (click)="completedItem(order)" (click)="showAlertComplete()">Mark As Completed</button>
-<button ion-button color="light" (click)="removeItem(order)" (click)="archiveItem(order)" (click)="showAlertArchive()">Archive Order</button>
-<button ion-button color="light" (click)="showAlertDelete()" (click)="removeItem(order)">Delete Order</button>
+    </ion-list>
+    <button ion-button color="lightgrn" (click)="removeItem(order)" (click)="completedItem(order)" (click)="showAlertComplete()">Mark As Completed</button>
+    <button ion-button color="light" (click)="removeItem(order)" (click)="archiveItem(order)" (click)="showAlertArchive()">Archive Order</button>
+    <button ion-button color="light" (click)="showAlertDelete()" (click)="removeItem(order)">Delete Order</button>
 </ion-content>
 
-<button type="button" ng-really-message="Are you sure?"
-ng-really-click="delete()">Delete</button>
-
-
+<button type="button" ng-really-message="Are you sure?" ng-really-click="delete()">Delete</button>

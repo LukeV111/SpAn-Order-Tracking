@@ -66,6 +66,11 @@ addArchive(uid, name) {
       this.afd.list('/users/' + uid + '/CompletedOrders/').push(name);
   } //Moves item to the databse of completed items.
 
+  assignOrderToCustomer(uid, name) {
+
+        this.afd.list('/users/' + uid + '/Customers/' + uid + 'completedOrders' ).push(name);
+    } //Moves item to the customer's profile.
+
   completedItemPutBack(uid, name) {
     
       this.afd.list('/users/' + uid + '/CurrentOrders/').push(name);

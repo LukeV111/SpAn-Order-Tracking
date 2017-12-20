@@ -11,9 +11,9 @@
 <ion-content padding align="center">
     <!-- This is where you need to put the drop down list -->
     <ion-item>
-        <ion-label>Customer Name:</ion-label>
-        <ion-select [(ngModel)]="order.customerName">
-            <ion-option *ngFor="let customer of customers">{{ customer.customerName }}</ion-option>
+        <ion-label>Company Name:</ion-label>
+        <ion-select [(ngModel)]="order.companyName">
+            <ion-option *ngFor="let customer of customers">{{ customer.companyName }}</ion-option>
         </ion-select>
     </ion-item>
     <!--  <ion-item>

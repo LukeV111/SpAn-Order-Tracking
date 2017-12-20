@@ -20,6 +20,7 @@ export class HomePage {
   public temp: any[] = [];
   public orderStatuses: any[] = [];
   public authUser: any;
+  public customers: any[] = [];
 
   constructor(private db: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController, public firebaseService: FirebaseService, private auth: AuthServiceProvider) {
   }
@@ -32,6 +33,7 @@ export class HomePage {
       this.db.list('/users/' + this.authUser.uid + '/CurrentOrders/').subscribe(items => {
         console.log("CurrentOrders have been changed");
         this.orders = items;
+        this.customers = items;
         this.temp = items;
 
         // If the orderStatuses are available rearrange orders. If not retrieve them from firebase
@@ -133,6 +135,7 @@ export class HomePage {
   completedItem(order) {
     this.firebaseService.completedItem(this.authUser.uid, order);
   }
+  
 
   viewItem(order){ 
     this.navCtrl.push(OrderDetailsPage, order);
@@ -169,6 +172,12 @@ export class HomePage {
       console.log("Saved");
     });
   }
+
+  // It's not going to work because you don't pull in the customer data into the home page when diplaying the orders. It's a copy, which won't work. It just takes the test from there.
+  // Lets see if we can change that.
+  // Maybe if orders automatically went under the customer and then just displayed on the home page in a certain way, that could be a winner.
+  //But I don't know how to display unique data from multiple databases on the same page.
+  
 
    showAlertStatus() {
     let alert = this.alertCtrl.create({

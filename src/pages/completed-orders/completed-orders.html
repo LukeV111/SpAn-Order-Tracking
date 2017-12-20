@@ -10,7 +10,7 @@
     <ion-list>
         <ion-item-sliding color="danger" *ngFor="let order of orders | async">
             <button ion-item detail-push (click)="viewItem(order)">
-  Customer Name: {{ order.customerName }}<br><br>
+  Company Name: {{ order.companyName }}<br><br>
   <b>Order Number:</b> {{ order.orderNumber }}<br><br> 
   <b>Date of Order:</b> {{ order.myDate }}<br><br>
   </button>

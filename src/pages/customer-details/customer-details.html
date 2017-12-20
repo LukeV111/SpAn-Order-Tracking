@@ -11,7 +11,8 @@
 
     <ion-list>
         <ion-item>
-            <b>Customer Name<br></b> {{ customer.customerName }}<br><br>
+            <b>Company Name:</b><br> {{ customer.companyName }}<br><br>
+            <b>Contact Name<br></b> {{ customer.customerName }} {{ customer.customerSurname }}<br><br>
             <b>Customer Email:</b><br> {{ customer.customerEmail }}<br><br>
             <b>Customer Code:</b><br> {{ customer.customerCode }}<br><br>
             <b>Currently Tracking?:</b><br> {{ customer.customerTracking }}<br><br>
@@ -24,6 +25,10 @@
                 <ion-option value="Yes">Yes</ion-option>
                 <ion-option value="No">No</ion-option>
             </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Previous Orders:</ion-label>
+            <!--Previous Orders here-->
         </ion-item>
     </ion-list>
 </ion-content>

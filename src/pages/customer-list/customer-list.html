@@ -15,9 +15,8 @@
         <ion-item-sliding color="danger" *ngFor="let customer of customers | async">
 
             <button ion-item detail-push (click)="viewCustomer(customer)"> 
-            <b>Customer Name<br></b> {{ customer.customerName }}<br><br>
-            <b>Customer Email:</b><br> {{ customer.customerEmail }}<br><br>
-            <b>Customer Code:</b><br> {{ customer.customerCode }}<br><br>
+            <b>Company Name:</b><br> {{ customer.companyName }}<br><br>
+            <b>Contact Name<br></b> {{ customer.customerName }} {{ customer.customerSurname }}<br><br>
   </button>
             <ion-item-options side="left">
                 <button ion-button color="lightred" icon-only (click)="removeCustomer(customer)">
