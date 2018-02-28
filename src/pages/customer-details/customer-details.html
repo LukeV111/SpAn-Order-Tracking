@@ -1,34 +1,122 @@
 <ion-header>
 
     <ion-navbar color="danger">
-        <ion-title align="center">Customer Details</ion-title>
+        <ion-title align="center">{{ customer.companyName }}</ion-title>
     </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
-    <ion-list>
-        <ion-item>
-            <b>Company Name:</b><br> {{ customer.companyName }}<br><br>
-            <b>Contact Name<br></b> {{ customer.customerName }} {{ customer.customerSurname }}<br><br>
-            <b>Customer Email:</b><br> {{ customer.customerEmail }}<br><br>
-            <b>Customer Code:</b><br> {{ customer.customerCode }}<br><br>
-            <b>Currently Tracking?:</b><br> {{ customer.customerTracking }}<br><br>
-        </ion-item>
-        <ion-item>
-            <ion-label>Update Tracking To:</ion-label>
-            <ion-select [(ngModel)]="customer.customerTracking" (ionChange)="saveTracking(customer)">
-                <!-- NG Model goes here in ion-select-->
-                <!-- You need to update customerTracking here -->
-                <ion-option value="Yes">Yes</ion-option>
-                <ion-option value="No">No</ion-option>
-            </ion-select>
-        </ion-item>
-        <ion-item>
-            <ion-label>Previous Orders:</ion-label>
-            <!--Previous Orders here-->
-        </ion-item>
-    </ion-list>
+    <ion-grid>
+        <form [formGroup]=" profileForm" (ngSubmit)="updateProfile(customerRef)">
+            <!-- Row 1-->
+            <ion-row>
+                <ion-col col-sm-6 col-md-12 col-lg-6 col-xl-6 no-padding>
+                    <ion-label><u>Company Details:</u></ion-label>
+                    <ion-item>
+                        <ion-icon name="ios-home-outline" item-left></ion-icon>
+                        <ion-label floating>Company Name:</ion-label>
+                        <ion-input type="text" value="{{ customer.companyName }}" [formControl]="profileForm.controls[ 'companyName']"><b>{{ customer.companyName }}</b></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="ios-pin-outline" item-left></ion-icon>
+                        <ion-label floating><b>Location:</b></ion-label>
+                        <ion-input type="text" value="{{ customer.location }}" [formControl]="profileForm.controls[ 'location']"><b>{{ customer.location }}</b></ion-input>
+                    </ion-item>
+                    <br>
+                    <ion-label><u>Account Details:</u></ion-label>
+                    <ion-item>
+                        <ion-icon name="ios-person-outline" item-left></ion-icon>
+                        <ion-label floating>Contact Full Name:</ion-label>
+                        <ion-input type="text" value="{{ customer.customerName }}" [formControl]="profileForm.controls[ 'customerName']"><b>{{ customer.customerName }}</b></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-top col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6>
+                    <ion-label><u>General Information:</u></ion-label>
+                    <ion-item>
+                        <ion-icon name="ios-cog-outline" item-left></ion-icon>
+                        <ion-label floating><b>Coffee Type:</b></ion-label>
+                        <ion-select [formControl]="profileForm.controls[ 'grindType']" [(ngModel)]="customer.grindType" (ionChange)="saveTracking(customer)" ngDefaultControl>
+                            <ion-option value=" Whole Beans">Whole Beans</ion-option>
+                            <ion-option value="Ground">Ground</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="ios-aperture-outline" item-left></ion-icon>
+                        <ion-label floating><b>Customer Tracking:</b></ion-label>
+                        <ion-select [formControl]="profileForm.controls[ 'customerTracking']" [(ngModel)]="customer.customerTracking" (ionChange)="saveTracking(customer)" ngDefaultControl>
+                            <ion-option value="Yes">Yes</ion-option>
+                            <ion-option value="No">No</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="ios-clipboard-outline" item-left></ion-icon>
+                        <ion-label floating><b>General Notes:</b></ion-label>
+                        <ion-textarea type="text" value="{{ customer.notes }}" [formControl]="profileForm.controls[ 'notes']">
+                            <p>{{ customer.notes }}</p>
+                        </ion-textarea>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <!-- Row 1-->
+            <!-- Row 2-->
+            <ion-row>
+                <ion-col col-top col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6>
+                    <ion-item>
+                        <ion-icon name="ios-mail-outline" item-left></ion-icon>
+                        <ion-label floating>Customer Email:</ion-label>
+                        <ion-input type="text" value="{{ customer.customerEmail }}" [formControl]="profileForm.controls[ 'customerEmail']"><b>{{ customer.customerEmail }}</b></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="ios-person-outline" item-left></ion-icon>
+                        <ion-label floating>Accounts Manager:</ion-label>
+                        <ion-input type="text" value="{{ customer.accountsManager }}" [formControl]="profileForm.controls[ 'accountsManager']"><b>{{ customer.accountsManager }}</b></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="ios-mail-outline" item-left></ion-icon>
+                        <ion-label floating>Accounts Email Address:</ion-label>
+                        <ion-input type="text" value="{{ customer.accountsEmail }}" [formControl]="profileForm.controls[ 'accountsEmail']"><b>{{ customer.accountsEmail }}</b></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="ios-barcode-outline" item-left></ion-icon>
+                        <ion-label floating>Customer Code:</ion-label>
+                        <ion-input type="text" value="{{ customer.customerCode }}" [formControl]="profileForm.controls[ 'customerCode']"><b>{{ customer.customerCode }}</b></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="logo-usd" item-left></ion-icon>
+                        <ion-label floating><b>Payment Terms</b></ion-label>
+                        <ion-select [formControl]="profileForm.controls[ 'paymentTerms']" [(ngModel)]="customer.paymentTerms" (ionChange)="saveTracking(customer)" ngDefaultControl>
+                            <ion-option value="COD">COD</ion-option>
+                            <ion-option value="7 Days">7 Days</ion-option>
+                            <ion-option value="30 Days">30 Days</ion-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <!-- Row 2-->
+            <button color="good" type="submit" ion-button>Update Profile</button>
+        </form>
+    </ion-grid>
 </ion-content>
+
+<!-- 
+        <ion-list>
+            <ion-item>
+                <b>Company Name:</b><br> {{ customer.companyName }}<br><br>
+                <b>Contact Name:<br></b> {{ customer.customerName }} {{ customer.customerSurname }}<br><br>
+                <b>Customer Email:</b><br> {{ customer.customerEmail }}<br><br>
+                <b>Customer Code:</b><br> {{ customer.customerCode }}<br><br>
+                <b>Currently Tracking?:</b><br> {{ customer.customerTracking }}<br><br>
+            </ion-item>
+            <ion-item>
+                <ion-label>Update Tracking To:</ion-label>
+                <ion-select [(ngModel)]="customer.customerTracking" (ionChange)="saveTracking(customer)">
+                    <ion-option value="Yes">Yes</ion-option>
+                    <ion-option value="No">No</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Previous Orders:</ion-label>
+            </ion-item>
+        </ion-list>
+        -->

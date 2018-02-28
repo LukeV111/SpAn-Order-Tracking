@@ -26,6 +26,7 @@ import { AngularFireModule } from 'angularfire2';
 import { FirebaseService } from './../providers/firebase-service';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+//import { EditCustomerPage } from '../pages/edit-customer/edit-customer';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC7htrI1a0PAxNAD9vr61VW7WHd2q9u0c4",
@@ -53,7 +54,7 @@ const firebaseConfig = {
     AddCustomerPage,
     CustomerListPage,
     CustomerDetailsPage,
-
+    //EditCustomerPage,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +81,7 @@ const firebaseConfig = {
     AddCustomerPage,
     CustomerListPage,
     CustomerDetailsPage,
-
+   // EditCustomerPage,
   ],
   providers: [
     StatusBar,

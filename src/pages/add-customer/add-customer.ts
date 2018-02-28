@@ -38,6 +38,4 @@ export class AddCustomerPage {
     this.authUser.uid,this.customer = [''];
   };
 
-  //Insert Customer Tracking Yes No From Database here.
-
 }
