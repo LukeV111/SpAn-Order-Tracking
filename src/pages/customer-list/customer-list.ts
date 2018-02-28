@@ -22,7 +22,8 @@ export class CustomerListPage {
   public loadedCustomerList: Array<any>;
   public customerRef: firebase.database.Reference;
 
-  customer: any;
+  customer: FirebaseListObservable<any[]>;;
+  customer2: any;
   customers: any;
 
   public authUser: any;
@@ -40,7 +41,7 @@ export class CustomerListPage {
       this.customer = this.firebaseService.getCustomerList(this.authUser.uid);
       this.customerRef = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/');
       console.log("this.authUser")
-      //console.log(this.authUser.uid)
+      console.log(this.customer)
     }
 
     this.customerRef = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/');
@@ -90,8 +91,8 @@ export class CustomerListPage {
     this.firebaseService.removeCustomer(this.authUser.uid, id);
   }
 
-  viewCustomer(customerRef) {
-    this.navCtrl.push(CustomerDetailsPage, customerRef);
+  viewCustomer(customer) {
+    this.navCtrl.push(CustomerDetailsPage, customer);
   }
 
   goToAddCustomer() {

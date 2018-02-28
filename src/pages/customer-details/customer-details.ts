@@ -16,24 +16,24 @@ import firebase from 'firebase';
 })
 export class CustomerDetailsPage {
 
-	public customer: any;
+	public customer: FirebaseListObservable<any[]>;
 	public authUser: any;
 	public customerArray; any = [];
 	public profileForm: FormGroup;
 	public profile: firebase.database.Reference;
 	public customerRef: firebase.database.Reference;
-
-
+	
 	constructor(private db: AngularFireDatabase, public fb: FormBuilder, public navCtrl: NavController, private toastCtrl: ToastController, public alertCtrl: AlertController, public firebaseService: FirebaseService, public navParams: NavParams, private auth: AuthServiceProvider) {
 
 		this.authUser = this.auth.getLoggedInUser();
 		if (this.authUser) {
+			this.navParams.get('customerRef')
+			console.log(this.navParams.get('this.customerRef'))
 			this.customer = this.navParams.data; //This line is referened by the html. 
-			this.customerRef = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/' + this.customer.$key);//This line is also referened by the html.
+			//console.log(this.navParams.data)
+			//console.log(this.customer)
+			this.customerRef = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/');//This line is also referened by the html.
 			this.db.list('/users/' + this.authUser.uid + '/Customers/').subscribe(items => {}); //This doesn't seem to do anything.
-			console.log(this.customer.$key)
-			//console.log('this.customer.key')		
-
 		};
 
 		this.profileForm = fb.group({
@@ -51,9 +51,9 @@ export class CustomerDetailsPage {
 		});
 	}
 
-	saveTracking(customer) {
+	saveTracking(customerRef) {
 		const updateTracking = this.db.list('/users/' + this.authUser.uid + '/Customers/');
-		updateTracking.update(customer.$key, customer).then(() => {
+		updateTracking.update(customerRef.$key, customerRef).then(() => {
 			console.log("Saved");
 		});
 	}
