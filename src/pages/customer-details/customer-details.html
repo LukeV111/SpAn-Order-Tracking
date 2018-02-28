@@ -9,7 +9,6 @@
 <ion-content padding>
     <ion-grid>
         <form [formGroup]=" profileForm" (ngSubmit)="updateProfile(customerRef)">
-            <!-- Row 1-->
             <ion-row>
                 <ion-col col-sm-6 col-md-12 col-lg-6 col-xl-6 no-padding>
                     <ion-label><u>Company Details:</u></ion-label>
@@ -56,10 +55,10 @@
                             <p>{{ customer.notes }}</p>
                         </ion-textarea>
                     </ion-item>
+
                 </ion-col>
             </ion-row>
-            <!-- Row 1-->
-            <!-- Row 2-->
+
             <ion-row>
                 <ion-col col-top col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6>
                     <ion-item>
@@ -93,7 +92,6 @@
                     </ion-item>
                 </ion-col>
             </ion-row>
-            <!-- Row 2-->
             <button color="good" type="submit" ion-button>Update Profile</button>
         </form>
     </ion-grid>
