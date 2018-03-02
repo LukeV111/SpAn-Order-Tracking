@@ -51,12 +51,12 @@ export class CustomerDetailsPage {
 		});
 	}
 
-	saveTracking(customerRef) {
-		const updateTracking = this.db.list('/users/' + this.authUser.uid + '/Customers/');
-		updateTracking.update(customerRef.$key, customerRef).then(() => {
-			console.log("Saved");
-		});
-	}
+	// saveTracking(customerRef) {
+	// 	const updateTracking = this.db.list('/users/' + this.authUser.uid + '/Customers/');
+	// 	updateTracking.update(customerRef.$key, customerRef).then(() => {
+	// 		console.log("Saved");
+	// 	});
+	// }
 
 	presentToast(position: string, message: string) {
 		let toast = this.toastCtrl.create({
@@ -65,8 +65,12 @@ export class CustomerDetailsPage {
 			duration: 3000
 		});
 		toast.present();
-	} 4
+	} 
 
+	goToEditCustomer(customer) {
+		this.navCtrl.push(EditCustomerPage, customer);
+		console.log("ZZZZZZ", customer);
+	}
 
 	updateProfile(customer) {
 		//console.log("Update Customer", this.profileForm.value);

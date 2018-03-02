@@ -28,13 +28,13 @@ export class CustomerListPage {
 
   public authUser: any;
 
-  constructor(private db: AngularFireDatabase, 
+  constructor(
+    private db: AngularFireDatabase, 
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public alertCtrl: AlertController, 
     public firebaseService: FirebaseService, 
     private auth: AuthServiceProvider) {
-
 
     this.authUser = this.auth.getLoggedInUser();
     if (this.authUser) {
@@ -42,7 +42,7 @@ export class CustomerListPage {
       //this.navParams.get('customer2');
       //this.customer2.key = this.customer2.$key
       //console.log(this.customer2.key)
-      this.customer = this.firebaseService.getCustomerList(this.authUser.uid);
+      //this.customer = this.firebaseService.getCustomerList(this.authUser.uid);
       this.customerRef = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/');
       console.log("this.authUser")
       console.log(this.customer)
@@ -52,7 +52,7 @@ export class CustomerListPage {
 
     this.customerRef.on('value', customerList => {
       let customers = []; //Makes customers an empty list.
-      customerList.forEach(customer => { //Making a customer list.
+      customerList.forEach(customer => { 
         let item = customer.val();
         item.key = customer.key;
         customers.push(item);

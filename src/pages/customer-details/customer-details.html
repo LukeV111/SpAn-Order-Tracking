@@ -1,13 +1,16 @@
 <ion-header>
-
     <ion-navbar color="danger">
         <ion-title align="center">{{ customer.companyName }}</ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only (click)="updateProfile(customer)">
+                Save Changes
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-    <button (click)="getKey(customer2)">Get Key</button>
     <ion-grid>
         <form [formGroup]=" profileForm" (ngSubmit)="updateProfile(customer)">
             <ion-row>
@@ -94,7 +97,7 @@
                     <!-- <ion-item><b>Contact Key<br></b> {{ customer.key }}<br><br></ion-item> -->
                 </ion-col>
             </ion-row>
-            <button color="good" type="submit" ion-button>Update Profile</button>
+            <!-- <button color="good" type="submit" ion-button>Update Profile</button> -->
         </form>
     </ion-grid>
 </ion-content>

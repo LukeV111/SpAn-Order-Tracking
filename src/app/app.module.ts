@@ -81,7 +81,7 @@ const firebaseConfig = {
     AddCustomerPage,
     CustomerListPage,
     CustomerDetailsPage,
-   // EditCustomerPage,
+    //EditCustomerPage,
   ],
   providers: [
     StatusBar,
