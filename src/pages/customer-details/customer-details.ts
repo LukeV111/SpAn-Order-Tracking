@@ -17,6 +17,7 @@ import firebase from 'firebase';
 export class CustomerDetailsPage {
 
 	public customer: FirebaseListObservable<any[]>;
+	public customer2: any[];
 	public authUser: any;
 	public customerArray; any = [];
 	public profileForm: FormGroup;
@@ -27,11 +28,10 @@ export class CustomerDetailsPage {
 
 		this.authUser = this.auth.getLoggedInUser();
 		if (this.authUser) {
-			this.navParams.get('customerRef')
-			console.log(this.navParams.get('this.customerRef'))
-			this.customer = this.navParams.data; //This line is referened by the html. 
-			//console.log(this.navParams.data)
-			//console.log(this.customer)
+			//this.customer2 = this.navParams.data;
+			//this.navParams.get('customerRef')
+			//console.log(this.navParams.get('this.customerRef'))
+			this.customer = this.navParams.data; //This line is referened by the html.
 			this.customerRef = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/');//This line is also referened by the html.
 			this.db.list('/users/' + this.authUser.uid + '/Customers/').subscribe(items => {}); //This doesn't seem to do anything.
 		};
@@ -66,6 +66,9 @@ export class CustomerDetailsPage {
 		});
 		toast.present();
 	} 4
+
+getKey(customer) {
+	console.log(customer.key, customer)}
 
 	updateProfile(customerRef) {
 		this.customerRef.update(this.profileForm.value).then(() => {

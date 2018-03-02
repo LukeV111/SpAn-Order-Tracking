@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { FirebaseService } from './../../providers/firebase-service';
 import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -22,7 +22,7 @@ export class CustomerListPage {
   public loadedCustomerList: Array<any>;
   public customerRef: firebase.database.Reference;
 
-  customer: FirebaseListObservable<any[]>;;
+  customer: FirebaseListObservable<any[]>;
   customer2: any;
   customers: any;
 
@@ -38,18 +38,25 @@ export class CustomerListPage {
 
     this.authUser = this.auth.getLoggedInUser();
     if (this.authUser) {
+      //this.customer2 = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/');
+      //this.navParams.get('customer2');
+      //this.customer2.key = this.customer2.$key
+      //console.log(this.customer2.key)
       this.customer = this.firebaseService.getCustomerList(this.authUser.uid);
       this.customerRef = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/');
       console.log("this.authUser")
       console.log(this.customer)
     }
 
-    this.customerRef = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/');
+    this.customerRef = firebase.database().ref('/users/' + this.authUser.uid + '/Customers/'); //CustomerRef is the reference for this Firebase Node!
 
     this.customerRef.on('value', customerList => {
-      let customers = [];
-      customerList.forEach(customer => {
+      let customers = []; //Makes customers an empty list.
+      customerList.forEach(customer => { //Making a customer list.
         customers.push(customer.val());
+        console.log(customer.key) //This logs each key!
+        console.log(customerList)
+        //this.navParams.get(customer.key)
         return false;
       });
       this.customerList = customers;
@@ -93,6 +100,7 @@ export class CustomerListPage {
 
   viewCustomer(customer) {
     this.navCtrl.push(CustomerDetailsPage, customer);
+    console.log(customer)
   }
 
   goToAddCustomer() {
