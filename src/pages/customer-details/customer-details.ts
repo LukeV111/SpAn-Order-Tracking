@@ -67,11 +67,10 @@ export class CustomerDetailsPage {
 		toast.present();
 	} 4
 
-getKey(customer) {
-	console.log(customer.key, customer)}
 
-	updateProfile(customerRef) {
-		this.customerRef.update(this.profileForm.value).then(() => {
+	updateProfile(customer) {
+		//console.log("Update Customer", this.profileForm.value);
+		this.customerRef.child(customer.key).update(this.profileForm.value).then(() => {
 			this.presentToast('middle', 'Customer Profile is updated');
 		});
 	}

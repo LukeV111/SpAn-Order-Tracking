@@ -53,7 +53,9 @@ export class CustomerListPage {
     this.customerRef.on('value', customerList => {
       let customers = []; //Makes customers an empty list.
       customerList.forEach(customer => { //Making a customer list.
-        customers.push(customer.val());
+        let item = customer.val();
+        item.key = customer.key;
+        customers.push(item);
         console.log(customer.key) //This logs each key!
         console.log(customerList)
         //this.navParams.get(customer.key)
@@ -100,7 +102,7 @@ export class CustomerListPage {
 
   viewCustomer(customer) {
     this.navCtrl.push(CustomerDetailsPage, customer);
-    console.log(customer)
+    console.log("ZZZZZZ", customer);
   }
 
   goToAddCustomer() {

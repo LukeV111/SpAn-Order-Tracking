@@ -9,7 +9,7 @@
 <ion-content padding>
     <button (click)="getKey(customer2)">Get Key</button>
     <ion-grid>
-        <form [formGroup]=" profileForm" (ngSubmit)="updateProfile(customerRef)">
+        <form [formGroup]=" profileForm" (ngSubmit)="updateProfile(customer)">
             <ion-row>
                 <ion-col col-sm-6 col-md-12 col-lg-6 col-xl-6 no-padding>
                     <ion-label><u>Company Details:</u></ion-label>
@@ -36,7 +36,7 @@
                     <ion-item>
                         <ion-icon name="ios-cog-outline" item-left></ion-icon>
                         <ion-label floating><b>Coffee Type:</b></ion-label>
-                        <ion-select [formControl]="profileForm.controls[ 'grindType']" [(ngModel)]="customer.grindType" (ionChange)="saveTracking(customer)" ngDefaultControl>
+                        <ion-select [formControl]="profileForm.controls[ 'grindType']" [(ngModel)]="customer.grindType" ngDefaultControl>
                             <ion-option value=" Whole Beans">Whole Beans</ion-option>
                             <ion-option value="Ground">Ground</ion-option>
                         </ion-select>
@@ -44,7 +44,7 @@
                     <ion-item>
                         <ion-icon name="ios-aperture-outline" item-left></ion-icon>
                         <ion-label floating><b>Customer Tracking:</b></ion-label>
-                        <ion-select [formControl]="profileForm.controls[ 'customerTracking']" [(ngModel)]="customer.customerTracking" (ionChange)="saveTracking(customer)" ngDefaultControl>
+                        <ion-select [formControl]="profileForm.controls[ 'customerTracking']" [(ngModel)]="customer.customerTracking" ngDefaultControl>
                             <ion-option value="Yes">Yes</ion-option>
                             <ion-option value="No">No</ion-option>
                         </ion-select>
@@ -85,13 +85,13 @@
                     <ion-item>
                         <ion-icon name="logo-usd" item-left></ion-icon>
                         <ion-label floating><b>Payment Terms</b></ion-label>
-                        <ion-select [formControl]="profileForm.controls[ 'paymentTerms']" [(ngModel)]="customer.paymentTerms" (ionChange)="saveTracking(customer)" ngDefaultControl>
+                        <ion-select [formControl]="profileForm.controls[ 'paymentTerms']" [(ngModel)]="customer.paymentTerms" ngDefaultControl>
                             <ion-option value="COD">COD</ion-option>
                             <ion-option value="7 Days">7 Days</ion-option>
                             <ion-option value="30 Days">30 Days</ion-option>
                         </ion-select>
                     </ion-item>
-                    <ion-item><b>Contact Key<br></b> {{ customer.key }}<br><br></ion-item>
+                    <!-- <ion-item><b>Contact Key<br></b> {{ customer.key }}<br><br></ion-item> -->
                 </ion-col>
             </ion-row>
             <button color="good" type="submit" ion-button>Update Profile</button>
