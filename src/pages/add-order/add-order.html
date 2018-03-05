@@ -9,33 +9,72 @@
 </ion-header>
 
 <!-- Ok here you need a proper form: -->
+<ion-content padding>
+    <form [formGroup]="addOrderForm" (ngSubmit)="addItem()">
+        <ion-label>
+            <h2>New Order Details: <u>{{ customer.companyName }}</u></h2>
+        </ion-label>
+        <ion-item hidden>
+            <ion-icon name="ios-home-outline" item-left></ion-icon>
+            <ion-label floating>Company Name:</ion-label>
+            <ion-input type="text" value="{{ customer.companyName }}" [formControl]="addOrderForm.controls['companyName']"><b>{{ customer.companyName }}</b></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="ios-barcode-outline" item-left></ion-icon>
+            <ion-label floating>Order Number:</ion-label>
+            <ion-input type="text" value="{{ order.orderNumber }}" [formControl]="addOrderForm.controls['orderNumber']"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="ios-checkbox-outline" item-left></ion-icon>
+            <ion-label floating>Order Items:</ion-label>
+            <ion-textarea type="text" value="{{ order.orderItems }}" [formControl]="addOrderForm.controls['orderItems']"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="ios-calendar-outline" item-left></ion-icon>
+            <ion-label floating>Date</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" value="{ order.myDate }" [formControl]="addOrderForm.controls['myDate']" [(ngModel)]="myDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="ios-stats-outline" item-left></ion-icon>
+            <ion-label>Set Status:</ion-label>
+            <ion-select [(ngModel)]="order.orderStatus" [formControl]="addOrderForm.controls['orderStatus']" ngDefaultControl>
+                <ion-option *ngFor="let orderStatus of orderStatuses " [value]="orderStatus.name" ngDefaultControl>{{orderStatus.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <!-- Status Input Below -->
+        <!-- <ion-item hidden>
+            <ion-icon name="ios-stats-outline" item-left></ion-icon>
+            <ion-label floating>Company Name:</ion-label>
+            <ion-input type="text" value="{{ orderStatus.name }}" [formControl]="addOrderForm.controls['orderStatus']" ngDefaultControl><b>{{orderStatus.name}}</b></ion-input>
+        </ion-item> -->
+        <!-- Status Input Above -->
+        <button color="good" type="submit" ion-button>Add Order</button>
+    </form>
+</ion-content>
 
-<ion-content padding align="center">
-    <!-- This is where you need to put the drop down list -->
+<!-- <ion-content padding align=" center ">
     <ion-item>
         <ion-label>Company Name:</ion-label>
-        <ion-select [(ngModel)]="order.companyName">
-            <ion-option *ngFor="let customer of customers">{{ customer.companyName }}</ion-option>
+        <ion-select [(ngModel)]="order.companyName ">
+            <ion-option *ngFor="let customer of customers ">{{ customer.companyName }}</ion-option>
         </ion-select>
     </ion-item>
-    <!--  <ion-item>
-        <ion-input type="text" [(ngModel)]="order.customerName" placeholder="Customer Name:"></ion-input>
-    </ion-item> This is the standard text input.-->
-    <ion-item>.
-        <ion-input type="text" [(ngModel)]="order.orderNumber" placeholder="Order Number:"></ion-input>
+ 
+    <ion-item>
+        <ion-input type="text " [(ngModel)]="order.orderNumber " placeholder="Order Number: "></ion-input>
     </ion-item>
     <ion-item>
-        <ion-textarea rows="5" [(ngModel)]="order.orderItems" placeholder="Order Items:"></ion-textarea>
+        <ion-textarea rows="5 " [(ngModel)]="order.orderItems " placeholder="Order Items: "></ion-textarea>
     </ion-item>
     <ion-item>
         <ion-label>Date</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="order.myDate"></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YYYY " [(ngModel)]="order.myDate "></ion-datetime>
     </ion-item>
     <ion-item>
         <ion-label>Set Status:</ion-label>
-        <ion-select [(ngModel)]="order.OrderStatus">
-            <ion-option *ngFor="let orderstatus of orderStatuses" [value]="orderstatus.name">{{orderstatus.name}}</ion-option>
+        <ion-select [(ngModel)]="order.OrderStatus ">
+            <ion-option *ngFor="let orderstatus of orderStatuses " [value]="orderstatus.name ">{{orderstatus.name}}</ion-option>
         </ion-select>
     </ion-item>
-    <button ion-button color="stable" (click)="addItem(order)" (click)="showAlert()">Add Order</button>
-</ion-content>.
+    <button ion-button color="stable " (click)="addItem(order) " (click)="showAlert() ">Add Order</button>
+</ion-content> -->
