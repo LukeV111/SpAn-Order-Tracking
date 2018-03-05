@@ -1,0 +1,36 @@
+<div class="bar bar-header bar-calm"></div>
+
+<ion-header>
+    <ion-navbar color="danger">
+        <ion-title align="center">
+            Select Customer
+        </ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only (click)="goToAddCustomer()">
+                Add Customer
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+    <ion-list>
+        <ion-item-sliding tappable *ngFor="let customer of customerList">
+            <button ion-item detail-push (click)="goToAddOrder(customer)">
+            <b>Company Name:</b><br> {{ customer.companyName }}<br><br>
+            <b>Contact Name:<br></b> {{ customer.customerName }}<br><br>
+            <!-- <b>Customer Key:<br></b> {{ customer.key }}<br><br> -->
+              </button>
+            <ion-item-options side="left">
+                <button ion-button color="lightred" icon-only (click)="removeCustomer(customer)">
+                  <!-- ADD GO TO HOME PAGE HERE -->
+    <ion-icon name="trash"></ion-icon>
+    </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>

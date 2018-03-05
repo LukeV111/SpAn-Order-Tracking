@@ -26,6 +26,8 @@ import { AngularFireModule } from 'angularfire2';
 import { FirebaseService } from './../providers/firebase-service';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { SelectCustomerPage } from '../pages/select-customer/select-customer';
+
 //import { EditCustomerPage } from '../pages/edit-customer/edit-customer';
 
 const firebaseConfig = {
@@ -54,6 +56,7 @@ const firebaseConfig = {
     AddCustomerPage,
     CustomerListPage,
     CustomerDetailsPage,
+    SelectCustomerPage,
     //EditCustomerPage,
   ],
   imports: [
@@ -81,6 +84,7 @@ const firebaseConfig = {
     AddCustomerPage,
     CustomerListPage,
     CustomerDetailsPage,
+    SelectCustomerPage,
     //EditCustomerPage,
   ],
   providers: [

@@ -7,7 +7,7 @@ import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/d
 import { AlertController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EditCustomerPage } from '../edit-customer/edit-customer';
+//import { EditCustomerPage } from '../edit-customer/edit-customer';
 import firebase from 'firebase';
 
 @Component({
@@ -67,10 +67,10 @@ export class CustomerDetailsPage {
 		toast.present();
 	} 
 
-	goToEditCustomer(customer) {
-		this.navCtrl.push(EditCustomerPage, customer);
-		console.log("ZZZZZZ", customer);
-	}
+	// goToEditCustomer(customer) {
+	// 	this.navCtrl.push(EditCustomerPage, customer);
+	// 	console.log("ZZZZZZ", customer);
+	// }
 
 	updateProfile(customer) {
 		//console.log("Update Customer", this.profileForm.value);
