@@ -31,12 +31,6 @@ import { SelectCustomerPage } from '../pages/select-customer/select-customer';
 //import { EditCustomerPage } from '../pages/edit-customer/edit-customer';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC7htrI1a0PAxNAD9vr61VW7WHd2q9u0c4",
-  authDomain: "span-order-tracking-app.firebaseapp.com",
-  databaseURL: "https://span-order-tracking-app.firebaseio.com",
-  projectId: "span-order-tracking-app",
-  storageBucket: "span-order-tracking-app.appspot.com",
-  messagingSenderId: "600260179957"
 };
 
 @NgModule({
